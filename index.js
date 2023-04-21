@@ -2,8 +2,7 @@ import {Server} from 'socket.io'
 
 const io = new Server(8000, {
     cors: {
-        origin: "https://chat-pedromoore.web.app",
-        methods: ["GET", "POST"]
+        origin: "https://chat-pedromoore.web.app/"
     }
 })
 

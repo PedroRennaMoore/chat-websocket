@@ -1,6 +1,6 @@
 import {Server} from 'socket.io'
 
-const io = new Server(8000, {
+const io = new Server(80, {
     cors: {
         origin: "https://chat-pedromoore.web.app",
         methods: ["GET", "POST"]

@@ -9,9 +9,9 @@ const server = createServer(app)
 
 const io = new Server(server, {
     cors: {
-        origin: "*"
-    },
-    methods: ["GET", "POST"]
+        origin: "https://chat-pedromoore.web.app",
+        methods: ["GET", "POST"]
+    }
 })
 
 let users = []

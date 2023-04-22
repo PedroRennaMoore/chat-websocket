@@ -1,7 +1,13 @@
 
 import {Server} from 'socket.io'
+import express from 'express'
+import {createServer} from 'http'
 
-const io = new Server(3002, {
+const app = express()
+
+const server = createServer(app)
+
+const io = new Server(server, {
     cors: {
         origin: "https://chat-pedromoore.web.app/"
     }
@@ -54,3 +60,5 @@ io.on("connection", (socket) => {
         io.emit("getUsers", users)  
     })
 })
+
+server.listen(3002)

@@ -1,6 +1,14 @@
+import {readFileSync } from "fs"
+import {createServer} from 'https'
 import {Server} from 'socket.io'
 
-const io = new Server(8000, {
+
+const httpsServer = createServer({
+    key: readFileSync("/path/to/my/key.pem"),
+    cert: readFileSync("/path/to/my/cert.pem")
+  });
+
+const io = new Server(httpsServer, {
     cors: {
         origin: "https://chat-pedromoore.web.app/"
     }
@@ -53,3 +61,6 @@ io.on("connection", (socket) => {
         io.emit("getUsers", users)  
     })
 })
+
+
+httpsServer.listen(8000)

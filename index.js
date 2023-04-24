@@ -1,6 +1,6 @@
 
 import {Server} from 'socket.io'
-import http  from 'https'
+import http  from 'http'
 
 
 const server = http.createServer()

@@ -1,7 +1,7 @@
 
 import {Server} from 'socket.io'
 import https  from 'https'
-const fs = require('fs');
+import fs from 'fs'
 
 const options = {
     key: fs.readFileSync('path/to/key.pem'),

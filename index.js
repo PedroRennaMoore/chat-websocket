@@ -1,10 +1,16 @@
 
 import {Server} from 'socket.io'
-import http  from 'http'
+import https  from 'https'
+const fs = require('fs');
 
-const server = http.createServer()
+const options = {
+    key: fs.readFileSync('path/to/key.pem'),
+    cert: fs.readFileSync('path/to/cert.pem')
+  };
 
-const PORT = process.env.PORT || 3003
+const server = https.createServer(options)
+
+const PORT = process.env.PORT || 443
 
 const io = new Server(server, {
     cors: {

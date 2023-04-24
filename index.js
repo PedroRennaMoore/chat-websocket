@@ -1,11 +1,12 @@
 
 import {Server} from 'socket.io'
 import http  from 'http'
+import express from 'express'
 
+const app = express()
+const server = http.createServer(app)
 
-const server = http.createServer()
-
-const PORT = process.env.PORT || 443
+const PORT = process.env.PORT || 3003
 
 const io = new Server(server, {
     cors: {

@@ -1,18 +1,9 @@
 
 import {Server} from 'socket.io'
-import express from 'express'
-import {createServer} from 'http'
-import cors from 'cors'
 
-const app = express()
+const PORT = process.env.PORT || 3003
 
-app.use(cors())
-
-const server = createServer(app)
-
-const PORT = process.env.PORT || 3000
-
-const io = new Server(server, {
+const io = new Server(PORT, {
     cors: {
         origin: "*"
     }
@@ -66,4 +57,3 @@ io.on("connection", (socket) => {
     })
 })
 
-server.listen(PORT)

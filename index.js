@@ -7,9 +7,11 @@ const app = express()
 
 const server = createServer(app)
 
+const PORT = process.env.PORT || 3000
+
 const io = new Server(server, {
     cors: {
-        origin: "https://chat-pedromoore.web.app",
+        origin: "*",
         methods: ["GET", "POST"]
     }
 })
@@ -62,4 +64,4 @@ io.on("connection", (socket) => {
     })
 })
 
-server.listen(3002)
+server.listen(PORT)

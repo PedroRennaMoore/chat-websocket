@@ -1,14 +1,9 @@
 
 import {Server} from 'socket.io'
-import https  from 'https'
-import fs from 'fs'
+import http  from 'https'
 
-const options = {
-    key: fs.readFileSync('path/to/key.pem'),
-    cert: fs.readFileSync('path/to/cert.pem')
-  };
 
-const server = https.createServer(options)
+const server = http.createServer()
 
 const PORT = process.env.PORT || 443
 
